@@ -1,5 +1,6 @@
-package com.example.ems.model;
+package com.example.ems.model.master;
 
+import com.example.ems.model.Employee;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,16 +16,22 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name="departments")
-public class Department {
+@NoArgsConstructor
+@Table(name="designations")
+public class Designation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
+
+    private Boolean management;
+
+    private Boolean active;
+
+    private Boolean deleted;
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -33,11 +40,7 @@ public class Department {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    private Boolean active;
-
-    private Boolean deleted;
-
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "designation", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Employee> employees;
 }

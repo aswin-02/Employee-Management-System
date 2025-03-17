@@ -1,5 +1,7 @@
 package com.example.ems.model;
 
+import com.example.ems.model.master.Department;
+import com.example.ems.model.master.Designation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

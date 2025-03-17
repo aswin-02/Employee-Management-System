@@ -1,11 +1,7 @@
 package com.example.ems.seeder;
-import com.example.ems.model.Department;
-import com.example.ems.repository.DepartmentRepository;
+import com.example.ems.repository.master.DepartmentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Component
 public class DataSeeder implements CommandLineRunner {

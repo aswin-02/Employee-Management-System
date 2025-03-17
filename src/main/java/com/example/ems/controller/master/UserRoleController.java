@@ -1,7 +1,7 @@
-package com.example.ems.controller;
+package com.example.ems.controller.master;
 
-import com.example.ems.model.UserRole;
-import com.example.ems.service.UserRoleService;
+import com.example.ems.model.master.UserRole;
+import com.example.ems.service.master.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

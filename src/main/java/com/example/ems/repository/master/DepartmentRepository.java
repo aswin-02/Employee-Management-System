@@ -1,6 +1,6 @@
-package com.example.ems.repository;
+package com.example.ems.repository.master;
 
-import com.example.ems.model.Department;
+import com.example.ems.model.master.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

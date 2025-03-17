@@ -1,7 +1,7 @@
-package com.example.ems.service;
+package com.example.ems.service.master;
 
-import com.example.ems.model.UserRole;
-import com.example.ems.repository.UserRoleRepository;
+import com.example.ems.model.master.UserRole;
+import com.example.ems.repository.master.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

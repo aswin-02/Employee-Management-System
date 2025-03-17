@@ -1,7 +1,7 @@
-package com.example.ems.service;
+package com.example.ems.service.master;
 
-import com.example.ems.model.Designation;
-import com.example.ems.repository.DesignationRepositiry;
+import com.example.ems.model.master.Designation;
+import com.example.ems.repository.master.DesignationRepositiry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

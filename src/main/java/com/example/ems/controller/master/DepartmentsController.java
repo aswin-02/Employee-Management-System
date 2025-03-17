@@ -1,7 +1,7 @@
-package com.example.ems.controller;
+package com.example.ems.controller.master;
 
-import com.example.ems.model.Department;
-import com.example.ems.service.DepartmentService;
+import com.example.ems.model.master.Department;
+import com.example.ems.service.master.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
