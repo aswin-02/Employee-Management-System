@@ -35,7 +35,15 @@ public class BankService {
             .orElseThrow(()->new RuntimeException("Bank not found with id: "+id));
     }
 
-    public void deleteBank(Long id){
-        bankRepository.deleteById(id);
+    public boolean deleteBank(Long id){
+        try{
+            if(!bankRepository.existsById(id)){
+                return false;
+            }
+            bankRepository.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

@@ -28,9 +28,37 @@ public class EmployeeService {
         return employeeRepository.findById(id)
             .map(employee -> {
                 employee.setName(updatedEmployee.getName());
-                employee.setEmail(updatedEmployee.getEmail());
-                employee.setDepartment(updatedEmployee.getDepartment());
                 employee.setDesignation(updatedEmployee.getDesignation());
+                employee.setEmployeeId(updatedEmployee.getEmployeeId());
+                employee.setShift(updatedEmployee.getShift());
+                employee.setDob(updatedEmployee.getDob());
+                employee.setDepartment(updatedEmployee.getDepartment());
+                employee.setGender(updatedEmployee.getGender());
+                employee.setTeam(updatedEmployee.getTeam());
+                employee.setClients(updatedEmployee.getClients());
+                employee.setPhoneNumber(updatedEmployee.getPhoneNumber());
+                employee.setAadharNumber(updatedEmployee.getAadharNumber());
+                employee.setEsiNumber(updatedEmployee.getEsiNumber());
+                employee.setUanNumber(updatedEmployee.getUanNumber());
+                employee.setDateOfJoining(updatedEmployee.getDateOfJoining());
+                employee.setDateOfLeaving(updatedEmployee.getDateOfLeaving());
+                employee.setCasualLeave(updatedEmployee.getCasualLeave());
+                employee.setSickLeave(updatedEmployee.getSickLeave());
+                employee.setPrivilegeLeave(updatedEmployee.getPrivilegeLeave());
+                employee.setSalary(updatedEmployee.getSalary());
+                employee.setGross(updatedEmployee.getGross());
+                employee.setBasic(updatedEmployee.getBasic());
+                employee.setHra(updatedEmployee.getHra());
+                employee.setEsi(updatedEmployee.getEsi());
+                employee.setPf(updatedEmployee.getPf());
+                employee.setInsurance(updatedEmployee.getInsurance());
+                employee.setNetAmount(updatedEmployee.getNetAmount());
+                employee.setBank(updatedEmployee.getBank());
+                employee.setAccountNumber(updatedEmployee.getAccountNumber());
+                employee.setIfsc(updatedEmployee.getIfsc());
+                employee.setEmail(updatedEmployee.getEmail());
+                employee.setPassword(updatedEmployee.getPassword());
+                employee.setRememberToken(updatedEmployee.getRememberToken());
                 employee.setDeleted(updatedEmployee.getDeleted());
                 return employeeRepository.save(employee);
             })

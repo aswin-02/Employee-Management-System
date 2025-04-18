@@ -1,7 +1,5 @@
-package com.example.ems.model.master;
+package com.example.ems.model;
 
-import com.example.ems.model.Employee;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,40 +8,52 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="client")
-public class Client {
+@Table(name="leaves")
+public class Leave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private Long userId;
 
-    private String projetName;
+    private LocalDate startDate;
 
-    private String description;
+    private LocalDate endDate;
+
+    private String duration;
+
+    private String leaveType;
+
+    private Long numberOfDays;
+
+    private String reason;
+
+    private String status;
+
+    private String rejectReason;
+
+    private Long clCount;
+
+    private Long slCount;
+
+    private Long plCount;
+
+    private Long lossOfPayCount;
 
     private Boolean active;
 
-    private Boolean deleted;
-
     @CreationTimestamp
-    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
-    @ManyToMany(mappedBy = "clients")
-    @JsonIgnore
-    private Set<Employee> employees;
-
 }
