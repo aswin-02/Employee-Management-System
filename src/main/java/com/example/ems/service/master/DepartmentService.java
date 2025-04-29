@@ -36,7 +36,21 @@ public class DepartmentService {
             .orElseThrow(() -> new RuntimeException("Department not found with id: " + id));
     }
 
-    public void deleteDepartment(Long id){
-        departmentRepository.deleteById(id);
+    public Department deleteDepartment(Long id){
+        return departmentRepository.findById(id)
+            .map(department -> {
+                department.setDeleted(true);
+                return departmentRepository.save(department);
+            })
+            .orElseThrow(() -> new RuntimeException("Department not found with id: " + id));
     }
+
+    public Department restoreDepartment(Long id) {
+        Department department = departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department not found"));
+
+        department.setDeleted(false);
+        return departmentRepository.save(department);
+    }
+
 }

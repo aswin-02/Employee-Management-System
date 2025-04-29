@@ -27,10 +27,12 @@ public class Designation {
     @Column(nullable = false)
     private String name;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean management;
 
     private Boolean active;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted;
 
     @CreationTimestamp

@@ -36,7 +36,12 @@ public class TeamController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteTeam(@PathVariable Long id){
-        teamService.deleteTeam(id);
+    public Team deleteTeam(@PathVariable Long id){
+        return teamService.deleteTeam(id);
+    }
+
+    @PutMapping("/restore/{id}")
+    public Team restoreTeam(@PathVariable Long id) {
+        return teamService.restoreTeam(id);
     }
 }

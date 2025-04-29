@@ -36,6 +36,7 @@ public class Department {
 
     private Boolean active;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)

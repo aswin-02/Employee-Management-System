@@ -31,6 +31,7 @@ public class Team {
 
     private Boolean active;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean deleted;
 
     @CreationTimestamp

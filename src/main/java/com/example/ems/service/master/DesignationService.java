@@ -37,11 +37,21 @@ public class DesignationService {
             .orElseThrow(()->new RuntimeException("Designation not found with id: "+id));
     }
 
-    public void deleteDesignation(Long id){
+    public Designation deleteDesignation(Long id){
+        return designationRepositiry.findById(id)
+                .map(designation -> {
+                    designation.setDeleted(true);
+                    return designationRepositiry.save(designation);
+                })
+                .orElseThrow(() -> new RuntimeException("Designation not found with id: " + id));
+    }
+
+    public Designation restoreDesignation(Long id) {
         Designation designation = designationRepositiry.findById(id)
                 .orElseThrow(() -> new RuntimeException("Designation not found"));
 
-        designation.setDeleted(true);
-        designationRepositiry.save(designation);
+        designation.setDeleted(false);
+        return designationRepositiry.save(designation);
     }
+
 }

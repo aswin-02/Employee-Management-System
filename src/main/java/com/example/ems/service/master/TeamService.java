@@ -37,7 +37,21 @@ public class TeamService {
             .orElseThrow(()->new RuntimeException("Team not found with id: "+id));
     }
 
-    public void deleteTeam(Long id){
-        teamRepository.deleteById(id);
+    public Team deleteTeam(Long id){
+        return teamRepository.findById(id)
+                .map(team -> {
+                    team.setDeleted(true);
+                    return teamRepository.save(team);
+                })
+                .orElseThrow(() -> new RuntimeException("Team not found with id: " + id));
     }
+
+    public Team restoreTeam(Long id) {
+        Team team = teamRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Team not found"));
+
+        team.setDeleted(false);
+        return teamRepository.save(team);
+    }
+
 }

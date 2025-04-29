@@ -20,7 +20,7 @@ public class DesignationController {
         return designationService.getAllDesignation();
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Optional<Designation> getDesignationById(@PathVariable Long id){
         return designationService.getDesignationById(id);
     }
@@ -36,7 +36,12 @@ public class DesignationController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDesignation(@PathVariable Long id){
-        designationService.deleteDesignation(id);
+    public Designation deleteDesignation(@PathVariable Long id){
+        return designationService.deleteDesignation(id);
+    }
+
+    @PutMapping("/restore/{id}")
+    public Designation restoreDesignation(@PathVariable Long id) {
+        return designationService.restoreDesignation(id);
     }
 }

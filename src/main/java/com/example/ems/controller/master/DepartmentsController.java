@@ -36,7 +36,13 @@ public class DepartmentsController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDepartment(@PathVariable Long id){
-        departmentService.deleteDepartment(id);
+    public Department deleteDepartment(@PathVariable Long id){
+        return departmentService.deleteDepartment(id);
     }
+
+    @PutMapping("/restore/{id}")
+    public Department restoreDepartment(@PathVariable Long id) {
+        return departmentService.restoreDepartment(id);
+    }
+
 }
